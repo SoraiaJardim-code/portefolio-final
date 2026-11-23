@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
+
+
+.split-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+.top-banner {
+    background-color: #6d253d;
+    padding: 25px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.top-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #f4b6c6;
+    transition: opacity 0.3s ease;
+}
+
+.nav-btn:hover {
+    opacity: 0.7;
+}
+
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: #f4b6c6;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+
+.bottom-hero {
+    flex: 1; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 25px;
+    background-image: 
+        linear-gradient(rgba(128, 56, 78, 0.58), rgba(109, 37, 61, 0.65)),
+        url('https://unsplash.com');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.overlay-content {
+    max-width: 1050px;
+    text-align: center;
+    z-index: 2;
+}
+
+.overlay-content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.4rem;
+    }
+    .overlay-content p {
+        font-size: 1.5rem;
+    }
+    .top-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+}
