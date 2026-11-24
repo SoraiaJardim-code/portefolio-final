@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtor Engenheiro - Portefólio</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="produtor-engenheiro.css">
+</head>
+<body>
+
+    <div class="detail-page">
+       
+        <nav class="top-nav">
+            <a href="produtor.html" class="nav-btn">←</a>
+       
+        </nav>
+
+        <!-- Título Principal -->
+        <header class="detail-header">
+            <h1 class="detail-title">PRODUTOR ENGENHEIRO</h1>
+        </header>
+
+        <!-- Conteúdo Principal: Cartão Rosa + Carrossel -->
+        <main class="detail-grid">
+            
+            <!-- Cartão Rosa com o Texto -->
+            <div class="info-box">
+                <p>
+                    O Produtor Engenheiro domina a vertente técnica do estúdio, a engenharia de som, a mistura e a masterização. O seu trabalho foca-se em lapidar a identidade estética e a textura de cada faixa, esculpindo as frequências para garantir que a música soe da melhor forma.
+                </p>
+            </div>
+
+            <!-- Carrossel Interativo -->
+            <div class="carousel-wrapper">
+                <div class="carousel-controls">
+                    <!-- Seta Esquerda -->
+                    <button class="arrow-btn" id="prevBtn" aria-label="Produtor anterior">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L4 12l6 6v-4h10v-4H10V6z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Fotografia do Produtor -->
+                    <div class="producer-photo">
+                        <img src="Pedro.jpg">
+                    </div>
+
+                    <!-- Seta Direita -->
+                    <button class="arrow-btn" id="nextBtn" aria-label="Próximo produtor">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 6l6 6-6 6v-4H4v-4h10V6z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Nome e Cargo do Produtor -->
+                <p class="producer-caption" id="producerCaption">
+                    Pedro Joaquim Borges - Produtor<br>Engenheiro de Mistura
+                </p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JavaScript do Carrossel -->
+    <script>
+       
+        const produtores = [
+            {
+                imagem: "Pedro.jpg",
+                legenda: "Pedro Joaquim Borges - Produtor<br>Engenheiro de Mistura"
+            },
+            {
+                imagem: "https://unsplash.com",
+                legenda: "Manny Marroquin - Engenheiro de<br>Mistura e Masterização"
+            },
+            {
+                imagem: "https://unsplash.com",
+                legenda: "Sylvia Massy - Produtora e<br>Engenheira de Áudio"
+            }
+        ];
+
+        let indiceAtual = 0;
+        const imgElemento = document.getElementById("producerImg");
+        const legendaElemento = document.getElementById("producerCaption");
+
+        function atualizarCarrossel() {
+            imgElemento.style.opacity = 0;
+            setTimeout(() => {
+                imgElemento.src = produtores[indiceAtual].imagem;
+                legendaElemento.innerHTML = produtores[indiceAtual].legenda;
+                imgElemento.style.opacity = 1;
+            }, 180);
+        }
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            indiceAtual = (indiceAtual + 1) % produtores.length;
+            atualizarCarrossel();
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            indiceAtual = (indiceAtual - 1 + produtores.length) % produtores.length;
+            atualizarCarrossel();
+        });
+    </script>
+
+</body>
+</html>
